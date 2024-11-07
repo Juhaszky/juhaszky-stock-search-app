@@ -9,7 +9,7 @@ export const revalidate = 60;
 
 const fetchStockData = async (smybol: string): Promise<Detail | Error> => {
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/detail&symbol=${smybol}`);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/detail?symbol=${smybol}`);
         const data: Detail = await res.json();
         if (!data['Monthly Time Series']) {
             return new Error("Stock data not available: 'Monthly Time Series' missing");

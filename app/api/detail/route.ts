@@ -25,7 +25,7 @@ export async function GET(req: Request) {
             return NextResponse.json({ error: 'API key is missing in production environment' }, { status: 500 });
         }
         try {
-            const res = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY?symbol=${symbol}&apikey=${process.env.API_KEY}`);
+            const res = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=${symbol}&apikey=${process.env.API_KEY}`);
             const jsonData: Detail = await res.json();
             return NextResponse.json(jsonData, { status: 200 });
         } catch (error) {
