@@ -9,7 +9,7 @@ export const revalidate = 60;
 
 const fetchStockData = async (): Promise<Detail | Error> => {
     try {
-        const res = await fetch(`http://localhost:3000/api/detail`);
+        const res = await fetch(`/api/detail`);
         const data: Detail = await res.json();
         if (!data['Monthly Time Series']) {
             return new Error("Stock data not available: 'Monthly Time Series' missing");
